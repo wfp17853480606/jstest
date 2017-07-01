@@ -1,0 +1,14 @@
+#tab {
+        list-style-type: none;
+    }    
+    #tab  .tab {
+        width: 100px;
+        height: 30px;
+        line-height: 30px;
+        float: left;
+        color: #fff;
+        background-color: #333;
+        text-align: center;
+        font-size: 14px;
+        cursor: pointer;
+    }

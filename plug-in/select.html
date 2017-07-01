@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<script src='external/jquery/jquery.js'></script>
+	<script src='js/select.js'></script>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		.selectList
+		{
+			margin:50px 100px;
+		}
+	</style>
+	<script>
+		$(function(){
+			$.select('area.json');
+		})
+	</script>
+</head>
+<body>
+<select class="province">
+	<option>请选择</option>
+</select>
+<select class="city">
+	<option>请选择</option>
+</select>
+<select class="district">
+	<option>请选择</option>
+</select>
+<div id='eee'></div>
+</body>
+</html>
