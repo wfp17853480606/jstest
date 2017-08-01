@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Bootstrap 101 Template</title>
+    <!-- Bootstrap -->
+    <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet">
+    <link href="bootstrap-3.3.7-dist/css/bootstrap-theme.css" rel="stylesheet">
+    <link href="bootstrap-3.3.7-dist/css/bootstrap-theme.min.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">AJAX异部获取表格数据</div>
+                <div class="panel-body">
+                   <table class='table table-bordered table-responsive'>
+                    <caption>学生信息表</caption>
+                    <tr>
+                       <th>姓名</th>
+                       <th>性别</th>
+                       <th>年龄</th>
+                       <th>电话</th>
+                       <th>ddd</th>
+                    </tr>
+                   </table>
+                </div>
+                <div class="panel-footer">
+                    <span class="status"></span>
+                </div>
+            </div>
+        </div>
+    </body>
+
+    </html>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="bootstrap-3.3.7-dist/js/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+</body>
+<script>
+     $(document).ready(
+        function () {
+            $.ajax({
+                url:"222.json",
+                type:"POST",
+                dataType:"json",
+                beforeSend:function(){
+                    var loading='<img src="images/loading.gif" alt="loading" width="15px">';
+                    $('.status').append(loading);
+                },
+                success:function (response) {
+                    setTimeout(function(){
+                         $(response).each(function(i,val){
+                        var line="<tr>"+
+                                "<td>"+val.name+"</td>"+
+                                "<td>"+val.sex+"</td>"+
+                                "<td>"+val.age+"</td>"+
+                                "<td>"+val.tel+"</td>"+
+                                "</tr>";
+                        $("table").append(line);
+                        /*var line=i+1;
+                        $("table tr:eq("+(line)+")").children("td:eq(0)").html(response[i].name);
+                        $("table tr:eq("+(line)+")").children("td:eq(1)").html(response[i].sex);
+                        $("table tr:eq("+(line)+")").children("td:eq(2)").html(response[i].age);
+                        $("table tr:eq("+(line)+")").children("td:eq(3)").html(response[i].tel);*/
+                    });
+                    $('.status').html('加载完成！');
+                },2000)//加setTimeout只是为了测试
+                   
+
+                }
+            });
+        }
+    );
+
+</script>
+
+</html>
