@@ -1,0 +1,31 @@
+*{
+	margin:0;
+	padding:0;
+}
+.content{
+	height:2000px;
+	.header-warpper{
+	height:100vh;
+	background-color:#ddd;
+	display:flex;
+	align-items:center;
+	.header-left{
+		flex:1;
+		text-align: center;
+	}
+	.message{
+		width:30px;
+		height:30px;
+		background-color:red;
+		border-radius: 50%;
+		.fa {
+			display:block;
+			text-align:center;
+			line-height: 30px;
+		}
+	}
+	.header-right{
+		flex:1;
+	}
+}
+}
